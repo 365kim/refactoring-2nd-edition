@@ -1,0 +1,12 @@
+{
+  "name": "01-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-json-modules main.mjs"
+  },
+  "author": "Martin Fowler",
+  "license": "ISC"
+}
