@@ -35,16 +35,16 @@ export function statement(invoice, plays) {
     return result;
   }
 
-  function volumeCreditsFor(perf) {
-    let volumeCredits = 0;
+  function volumeCreditsFor(aPerformance) {
+    let result = 0;
 
-    volumeCredits += Math.max(perf.audience - 30, 0);
+    result += Math.max(aPerformance.audience - 30, 0);
 
-    if ('comedy' === playFor(perf).type) {
-      volumeCredits += Math.floor(perf.audience / 5);
+    if ('comedy' === playFor(aPerformance).type) {
+      result += Math.floor(aPerformance.audience / 5);
     }
 
-    return volumeCredits;
+    return result;
   }
 
   for (let perf of invoice.performances) {
