@@ -71,9 +71,8 @@ export function statement(invoice, plays) {
     // 청구 내역을 출력한다.
     result += `${playFor(perf).name}: ${usd(amountFor(perf) / 100)} ${perf.audience}석\n`;
   }
-  let totalAmount = totalAmount();
 
-  result += `총액 ${usd(totalAmount / 100)}\n`;
+  result += `총액 ${usd(totalAmount() / 100)}\n`;
   result += `적립 포인트 ${totalVolumeCredits()}점\n`;
 
   return result;
