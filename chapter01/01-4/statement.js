@@ -62,6 +62,8 @@ export function statement(invoice, plays) {
   for (let perf of invoice.performances) {
     // 청구 내역을 출력한다.
     result += `${playFor(perf).name}: ${usd(amountFor(perf) / 100)} ${perf.audience}석\n`;
+  }
+  for (let perf of invoice.performances) {
     totalAmount += amountFor(perf);
   }
 
