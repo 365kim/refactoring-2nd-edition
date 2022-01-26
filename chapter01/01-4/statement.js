@@ -2,8 +2,12 @@ export function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `청구내역 (고객명: ${invoice.customer})\n`;
-  const format = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
-    .format;
+
+  function format(aNumber) {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(
+      aNumber
+    );
+  }
 
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
