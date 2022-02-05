@@ -1,4 +1,4 @@
-import { statement } from './01-4/statement.js';
+import { statement } from './01-6/statement.js';
 
 import invoices from './invoices.json';
 import plays from './plays.json';
