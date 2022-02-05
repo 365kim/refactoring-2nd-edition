@@ -1,8 +1,10 @@
 export function statement(invoice, plays) {
-  return renderPlainText(invoice, plays);
+  const statementData = {};
+
+  return renderPlainText(statementData, invoice, plays);
 }
 
-function renderPlainText(invoice, plays) {
+function renderPlainText(statementData, invoice, plays) {
   let result = `청구내역 (고객명: ${invoice.customer})\n`;
 
   for (let perf of invoice.performances) {
