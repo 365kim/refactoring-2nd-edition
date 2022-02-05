@@ -10,7 +10,7 @@ export function createStatementData(invoice, plays) {
 
   /* 각 공연의 정보를 중간 데이터 구조에 채워주는 함수 */
   function enrichPerformance(aPerformance) {
-    const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
+    const calculator = createPerformanceCalculator(aPerformance, playFor(aPerformance));
     const result = Object.assign({}, aPerformance);
 
     result.play = calculator.play;
@@ -31,6 +31,10 @@ export function createStatementData(invoice, plays) {
   function totalVolumeCredits(data) {
     return data.performances.reduce((acc, cur) => acc + cur.volumeCredits, 0);
   }
+}
+
+function createPerformanceCalculator(aPerformance, aPlay) {
+  return new PerformanceCalculator(aPerformance, aPlay);
 }
 
 class PerformanceCalculator {
