@@ -38,7 +38,7 @@ class Province {
     this._price = parseInt(arg);
   }
   get shortfall() {
-    return this._demand - this.totalProduction;
+    return this.demand - this.totalProduction;
   }
   get profit() {
     return this.demandValue - this.demandCost;
@@ -47,7 +47,7 @@ class Province {
     return this.satisfiedDemand * this.price;
   }
   get satisfiedDemand() {
-    return Math.min(this._demand, this.totalProduction);
+    return Math.min(this.demand, this.totalProduction);
   }
   get demandCost() {
     let remainingDemand = this.demand;
@@ -66,8 +66,8 @@ class Province {
 class Producer {
   constructor(aProvince, data) {
     this._province = aProvince;
-    this._cost = data.cost;
     this._name = data.name;
+    this._cost = data.cost;
     this._production = data.production || 0;
   }
   get name() {
@@ -85,6 +85,7 @@ class Producer {
   set production(amountStr) {
     const amount = parseInt(amountStr);
     const newProduction = Number.isNaN(amount) ? 0 : amount;
+
     this._province.totalProduction += newProduction - this.production;
     this._production = newProduction;
   }
