@@ -3,13 +3,13 @@ class Province {
     this._name = doc.name;
     this._producers = [];
     this._totalProduction = 0;
-    this._demand = doc._demand;
+    this._demand = doc.demand;
     this._price = doc.price;
-    doc.producers.forEach((d) => this.addProducer(new this.producers(this, d)));
+    doc.producers.forEach((d) => this.addProducer(new Producer(this, d)));
   }
 
   addProducer(arg) {
-    this._producer.push(arg);
+    this._producers.push(arg);
     this._totalProduction += arg.production;
   }
 
@@ -49,7 +49,7 @@ class Province {
   get satisfiedDemand() {
     return Math.min(this._demand, this.totalProduction);
   }
-  get DemandCost() {
+  get demandCost() {
     let remainingDemand = this.demand;
     let result = 0;
     this.producers
