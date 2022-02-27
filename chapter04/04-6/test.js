@@ -22,6 +22,12 @@ describe('province', function () {
     assert.equal(asia.profit, 292);
   });
 
+  it('zero demand', function () {
+    asia.demand = 0;
+    assert.equal(asia.shortfall, -25);
+    assert.equal(asia.profit, 0);
+  });
+
 });
 
 describe('no producers', function () {
