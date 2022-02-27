@@ -34,6 +34,11 @@ describe('province', function () {
     assert.equal(asia.profit, 0);
   });
 
+  it('empty string demand', function () {
+    asia.demand = '';
+    assert.equal(asia.shortfall, NaN);
+    assert.equal(asia.profit, NaN);
+  });
 });
 
 describe('no producers', function () {
