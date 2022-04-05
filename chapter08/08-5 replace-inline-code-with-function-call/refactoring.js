@@ -1,0 +1,1 @@
+appliesToMass = states.includes('MA');
